@@ -1,0 +1,464 @@
+ clear;
+ close all;
+ clc;
+ 
+ % load data corresponding to low salt and high salt(9+6 = 15 for each category)
+ load SS_LS
+ M1_LS=M;
+ clear M
+ 
+ load SS_HS
+ M1_HS=M;
+ clear M
+ 
+ load SSBN13_LS
+ M2_LS=M;
+ clear M
+  
+ load SSBN13_HS
+ M2_HS=M;
+ clear M
+ %----------------------------------------------------------------------------------------------------------------%
+ % read the data of subject 1
+  x11=M1_LS(:,1);
+  x11=check_data(x11);
+%  figure;subplot(211);plot(x11);title('low salt -1');
+
+  x12=M1_HS(:,1);
+  x12=check_data(x12);
+% subplot(212);plot(x12);title('high salt -1');
+ 
+ % read the data of subject 2
+  x21=M1_LS(:,2);
+  x21=check_data(x21);
+%  figure; subplot(211);plot(x21);title('low salt  -2'); 
+
+ x22=M1_HS(:,2);
+ x22=check_data(x22);
+%   subplot(212);plot(x22);title('high salt -2');
+
+% read the data of subject 3
+  x31=M1_LS(:,3);
+  x31=check_data(x31);
+% figure; subplot(211);plot(x31);title('low salt -3'); 
+
+  x32=M1_HS(:,3);
+  x32=check_data(x32);
+% subplot(212);plot(x32);title('high salt -3');
+
+% read the data of subject 4
+  x41=M1_LS(:,4);
+  x41=check_data(x41);
+% figure; subplot(211);plot(x41);title('low salt -4'); 
+
+  x42=M1_HS(:,4);
+  x42=check_data(x42);
+% subplot(212);plot(x42);title('high salt -4');
+
+% read the data of subject 5
+  x51=M1_LS(:,5);
+  x51=check_data(x51);
+% figure; subplot(211);plot(x51);title('low salt -5'); 
+
+  x52=M1_HS(:,5);
+  x52=check_data(x52);
+% subplot(212);plot(x52);title('high salt -5');
+
+% read the data of subject 6
+  x61=M1_LS(:,6);
+  x61=check_data(x61);
+% figure; subplot(211);plot(x61);title('low salt -6'); 
+
+  x62=M1_HS(:,6);
+  x62=check_data(x62);
+% subplot(212);plot(x62);title('high salt -6');
+
+% read the data of subject 7
+  x71=M1_LS(:,7);
+  x71=check_data(x71);
+% figure; subplot(211);plot(x71);title('low salt -7'); 
+
+  x72=M1_HS(:,7);
+  x72=check_data(x72);
+% subplot(212);plot(x72);title('high salt -7');
+
+% read the data of subject 8
+  x81=M1_LS(:,8);
+  x81=check_data(x81);
+% figure; subplot(211);plot(x81);title('low salt -8'); 
+
+  x82=M1_HS(:,8);
+  x82=check_data(x82);
+% subplot(212);plot(x82);title('high salt -8');
+
+% read the data of subject 9
+  x91=M1_LS(:,9);
+  x91=check_data(x91);
+% figure; subplot(211);plot(x91);title('low salt -9'); 
+
+  x92=M1_HS(:,9);
+  x92=check_data(x92);
+% subplot(212);plot(x92);title('high salt -9');
+
+% read the data of subject 10
+  x101=M2_LS(:,1);
+  x101=check_data(x101);
+% figure; subplot(211);plot(x101);title('low salt -10'); 
+
+  x102=M2_HS(:,1);
+  x102=check_data(x102);
+% subplot(212);plot(x102);title('high salt -10');
+
+% read the data of subject 11
+  x111=M2_LS(:,2);
+  x111=check_data(x111);
+% figure; subplot(211);plot(x111);title('low salt -11'); 
+
+  x112=M2_HS(:,2);
+  x112=check_data(x112);
+% subplot(212);plot(x112);title('high salt -11');
+
+% read the data of subject 12
+  x121=M2_LS(:,3);
+  x121=check_data(x121);
+% figure; subplot(211);plot(x121);title('low salt -12'); 
+
+  x122=M2_HS(:,3);
+  x122=check_data(x122);
+% subplot(212);plot(x122);title('high salt -12');
+
+% read the data of subject 13
+  x131=M2_LS(:,4);
+  x131=check_data(x131);
+% figure; subplot(211);plot(x131);title('low salt -13'); 
+
+  x132=M2_HS(:,4);
+  x132=check_data(x132);
+% subplot(212);plot(x132);title('high salt -13');
+
+% read the data of subject 14
+  x141=M2_LS(:,5);
+  x141=check_data(x141);
+% figure; subplot(211);plot(x141);title('low salt -14'); 
+
+  x142=M2_HS(:,5);
+  x142=check_data(x142);
+% subplot(212);plot(x142);title('high salt -14');
+
+% read the data of subject 15
+  x151=M2_LS(:,6);
+  x151=check_data(x151);
+% figure; subplot(211);plot(x151);title('low salt -15'); 
+
+  x152=M2_HS(:,6);
+  x152=check_data(x152);
+% subplot(212);plot(x152);title('high salt -15');
+% %--------------------------------------------------------------------------------------------------------------------------------------%
+% define outputs
+%  Y=[ones(1,8400),zeros(1,8400),ones(1,3600),zeros(1,3600)]';
+%  L="relu"; 
+% define inputs for the first category
+%  X1=[x11(1:8400,1);x12(1:8400,1);x11(8401:12000,1);x12(8401:12000,1)];
+
+%  MCCA1=myann1(X1,Y,L,1);
+%  fprintf("\n MCC by using ANN for set 1 using relu is %f\n",MCCA1);
+
+%  L1="tanh"; 
+%  MCCA11=myann1(X1,Y,L1,1);
+%  fprintf("\n MCC by using ANN for set 1 using tanh is %f\n",MCCA11);
+% 
+%  L2="sigmoid"; 
+%  MCCA12=myann1(X1,Y,L2,1);
+%  fprintf("\n MCC by using ANN for set 1 using sigmoid is %f\n",MCCA12);
+
+% % % define inputs for the second category
+%    X2=[x21(1:8400,1);x22(1:8400,1);x21(8401:12000,1);x22(8401:12000,1)];
+%    MCCA2=myann1(X2,Y,L,2);
+%    fprintf("\n MCC by using ANN for set 2 using relu is %f\n",MCCA2);
+% 
+% % % define inputs for the third category
+%    X3=[x31(1:8400,1);x32(1:8400,1);x31(8401:12000,1);x32(8401:12000,1)];
+%    MCCA3=myann1(X3,Y,L,3);
+%    fprintf("\n MCC by using ANN for set 3 using relu is %f\n",MCCA3);
+% 
+% % % define inputs for the fourth category
+%    X4=[x41(1:8400,1);x42(1:8400,1);x41(8401:12000,1);x42(8401:12000,1)];
+%    MCCA4=myann1(X4,Y,L,4);
+%    fprintf("\n MCC by using ANN for set 4 using relu is %f\n",MCCA4);
+% 
+% % % define inputs for the fifth category
+%    X5=[x51(1:8400,1);x52(1:8400,1);x51(8401:12000,1);x52(8401:12000,1)];
+%    MCCA5=myann1(X5,Y,L,5);
+%    fprintf("\n MCC by using ANN for set 5 using relu is %f\n",MCCA5);
+% 
+% % % define inputs for the sixth category
+%    X6=[x61(1:8400,1);x62(1:8400,1);x61(8401:12000,1);x62(8401:12000,1)];
+%    MCCA6=myann1(X6,Y,L,6);
+%    fprintf("\n MCC by using ANN for set 6 using relu is %f\n",MCCA6);
+% 
+% % % define inputs for the seventh category
+%    X7=[x71(1:8400,1);x72(1:8400,1);x71(8401:12000,1);x72(8401:12000,1)];
+%    MCCA7=myann1(X7,Y,L,7);
+%    fprintf("\n MCC by using ANN for set 7 using relu is %f\n",MCCA7);
+% 
+% % % define inputs for the eigth category
+%    X8=[x81(1:8400,1);x82(1:8400,1);x81(8401:12000,1);x82(8401:12000,1)];
+%    MCCA8=myann1(X8,Y,L,8);
+%    fprintf("\n MCC by using ANN for set 8 using relu is %f\n",MCCA8);
+% 
+% % % define inputs for the ninth category
+%    X9=[x91(1:8400,1);x92(1:8400,1);x91(8401:12000,1);x92(8401:12000,1)];
+%    MCCA9=myann1(X9,Y,L,9);
+%    fprintf("\n MCC by using ANN for set 9 using relu is %f\n",MCCA9);
+% 
+% % % define inputs for the tenth category
+%     X10=[x101(1:8400,1);x102(1:8400,1);x101(8401:12000,1);x102(8401:12000,1)];
+%     MCCA10=myann1(X10,Y,L,10);
+%     fprintf("\n MCC by using ANN for set 10 using relu is %f\n",MCCA10);
+% 
+% % % define inputs for the eleventh category
+%     X11=[x111(1:8400,1);x112(1:8400,1);x111(8401:12000,1);x112(8401:12000,1)];
+%     MCCA11=myann1(X11,Y,L,11);
+%     fprintf("\n MCC by using ANN for set 11 using relu is %f\n",MCCA11);
+% 
+% % % define inputs for the twelveth category
+%     X12=[x121(1:8400,1);x122(1:8400,1);x121(8401:12000,1);x122(8401:12000,1)];
+%     MCCA12=myann1(X12,Y,L,12);
+%     fprintf("\n MCC by using ANN for set 12 using relu is %f\n",MCCA12);
+%  
+% % % define inputs for the thirteenth category
+%     X13=[x131(1:8400,1);x132(1:8400,1);x131(8401:12000,1);x132(8401:12000,1)];
+%     MCCA13=myann1(X13,Y,L,13);
+%     fprintf("\n MCC by using ANN for set 13 using relu is %f\n",MCCA13);
+% 
+% % %  define inputs for the fourteenth category
+%    X14=[x141(1:8400,1);x142(1:8400,1);x141(8401:12000,1);x142(8401:12000,1)];
+%    MCCA14=myann1(X14,Y,L,14);
+%    fprintf("\n MCC by using ANN for set 14 using relu is %f\n",MCCA14);
+% 
+% % %  define inputs for the fifteenth category
+%    X15=[x151(1:8400,1);x152(1:8400,1);x151(8401:12000,1);x152(8401:12000,1)];
+%    MCCA15=myann1(X15,Y,L,15);
+%    fprintf("\n MCC by using ANN for set 15 using relu is %f\n",MCCA15);
+% %----------------------------------------------------------------------------------------------------------------%
+% % % kernel functions 'linear' 'gaussian' 'rbf' 'polynomial'
+% % Test SVM classifier with gaussian kernel
+% % define kernel
+f1='gaussian';
+% % subject 1
+X1=[x11(1:12000,1);x12(1:12000,1)]';
+MCCsvm11=mysvm_classify(X1,1,f1);
+fprintf('\n MCC for set 1 by using SVM classifier with gaussian kernel is %f \n',MCCsvm11);
+% 
+% % subject 2
+ X2=[x21(1:12000,1);x22(1:12000,1)]';
+MCCsvm12=mysvm_classify(X2,2,f1);
+fprintf('\n MCC for set 2 by using SVM classifier with gaussian kernel is %f \n',MCCsvm12);
+% 
+% % subject 3
+ X3=[x31(1:12000,1);x32(1:12000,1)]';
+MCCsvm13=mysvm_classify(X3,3,f1);
+fprintf('\n MCC for set 3 by using SVM classifier with gaussian kernel is %f \n',MCCsvm13);
+% 
+% % subject 4
+ X4=[x41(1:12000,1);x42(1:12000,1)]';
+MCCsvm14=mysvm_classify(X4,4,f1);
+fprintf('\n MCC for set 4 by using SVM classifier with gaussian kernel is %f \n',MCCsvm14);
+% 
+% % subject 5
+ X5=[x51(1:12000,1);x52(1:12000,1)]';
+MCCsvm15=mysvm_classify(X5,5,f1);
+fprintf('\n MCC for set 5 by using SVM classifier with gaussian kernel is %f \n',MCCsvm15);
+% 
+% % subject 6
+ X6=[x61(1:12000,1);x62(1:12000,1)]';
+MCCsvm16=mysvm_classify(X6,6,f1);
+fprintf('\n MCC for set 6 by using SVM classifier with gaussian kernel is %f \n',MCCsvm16);
+% 
+% % subject 7
+ X7=[x71(1:12000,1);x72(1:12000,1)]';
+MCCsvm17=mysvm_classify(X7,7,f1);
+fprintf('\n MCC for set 7 by using SVM classifier with gaussian kernelis %f \n',MCCsvm17);
+% 
+% % subject 8
+X8=[x81(1:12000,1);x82(1:12000,1)]';
+MCCsvm18=mysvm_classify(X8,8,f1);
+fprintf('\n MCC for set 8 by using SVM classifier with gaussian kernel is %f \n',MCCsvm18);
+% 
+% % subject 9
+X9=[x91(1:12000,1);x92(1:12000,1)]';
+MCCsvm19=mysvm_classify(X9,9,f1);
+fprintf('\n MCC for set 9 by using SVM classifier with gaussian kernel is %f \n',MCCsvm19);
+% 
+% % subject 10
+ X10=[x101(1:12000,1);x102(1:12000,1)]';
+MCCsvm110=mysvm_classify(X10,10,f1);
+fprintf('\n MCC for set 10 by using SVM classifier with gaussian kernel is %f \n',MCCsvm110);
+% 
+% % subject 11
+ X11=[x111(1:12000,1);x112(1:12000,1)]';
+MCCsvm111=mysvm_classify(X11,11,f1);
+fprintf('\n MCC for set 11 by using SVM classifier with gaussian kernel is %f \n',MCCsvm111);
+% 
+% % subject 12
+ X12=[x121(1:12000,1);x122(1:12000,1)]';
+MCCsvm112=mysvm_classify(X12,12,f1);
+fprintf('\n MCC for set 12 by using SVM classifier with gaussian kernel is %f \n',MCCsvm112);
+% 
+% % subject 13
+ X13=[x131(1:12000,1);x132(1:12000,1)]';
+MCCsvm113=mysvm_classify(X13,13,f1);
+fprintf('\n MCC for set 13 by using SVM classifier with gaussian kernel is %f \n',MCCsvm113);
+% 
+% % subject 14
+ X14=[x141(1:12000,1);x142(1:12000,1)]';
+MCCsvm114=mysvm_classify(X14,14,f1);
+fprintf('\n MCC for set 14 by using SVM classifier with gaussian kernel is %f \n',MCCsvm114);
+% 
+% % subject 15
+ X15=[x151(1:12000,1);x152(1:12000,1)]';
+MCCsvm115=mysvm_classify(X15,15,f1);
+fprintf('\n MCC for set 15 by using SVM classifier with gaussian kernel is %f \n',MCCsvm115);
+% % %----------------------------------------------------------------------------------------------------------------%
+% % Test SVM classifier with rbf kernel
+
+% define kernel
+f2='rbf';
+
+% subject 1
+% X1=[x11(1:12000,1);x12(1:12000,1)]';
+MCCsvm1=mysvm_classify(X1,1,f2);
+fprintf('\n MCC for set 1 by using SVM classifier with rbf kernel is %f \n',MCCsvm1);
+
+% subject 2
+% X2=[x21(1:12000,1);x22(1:12000,1)]';
+MCCsvm2=mysvm_classify(X2,2,f2);
+fprintf('\n MCC for set 2 by using SVM classifier with rbf kernel is %f \n',MCCsvm2);
+
+% subject 3
+% X3=[x31(1:12000,1);x32(1:12000,1)]';
+MCCsvm3=mysvm_classify(X3,3,f2);
+fprintf('\n MCC for set 3 by using SVM classifier with rbf kernel is %f \n',MCCsvm3);
+
+% subject 4
+X4=[x41(1:12000,1);x42(1:12000,1)]';
+MCCsvm4=mysvm_classify(X4,4,f2);
+fprintf('\n MCC for set 4 by using SVM classifier with rbf kernel is %f \n',MCCsvm4);
+
+% subject 5
+% X5=[x51(1:12000,1);x52(1:12000,1)]';
+MCCsvm5=mysvm_classify(X5,5,f2);
+fprintf('\n MCC for set 5 by using SVM classifier with rbf kernel is %f \n',MCCsvm5);
+
+% subject 6
+% X6=[x61(1:12000,1);x62(1:12000,1)]';
+MCCsvm6=mysvm_classify(X6,6,f2);
+fprintf('\n MCC for set 6 by using SVM classifier with rbf kernel is %f \n',MCCsvm6);
+
+% subject 7
+% X7=[x71(1:12000,1);x72(1:12000,1)]';
+MCCsvm7=mysvm_classify(X7,7,f2);
+fprintf('\n MCC for set 7 by using SVM classifier with rbf kernel is %f \n',MCCsvm7);
+
+% subject 8
+% X8=[x81(1:12000,1);x82(1:12000,1)]';
+MCCsvm8=mysvm_classify(X8,8,f2);
+fprintf('\n MCC for set 8 by using SVM classifier with rbf kernel is %f \n',MCCsvm8);
+
+% subject 9
+% X9=[x91(1:12000,1);x92(1:12000,1)]';
+MCCsvm9=mysvm_classify(X9,9,f2);
+fprintf('\n MCC for set 9 by using SVM classifier with rbf kernel is %f \n',MCCsvm9);
+
+% subject 10
+% X10=[x101(1:12000,1);x102(1:12000,1)]';
+MCCsvm10=mysvm_classify(X10,10,f2);
+fprintf('\n MCC for set 10 by using SVM classifier with rbf kernel is %f \n',MCCsvm10);
+
+
+% subject 11
+% X11=[x111(1:12000,1);x112(1:12000,1)]';
+MCCsvm11=mysvm_classify(X11,11,f2);
+fprintf('\n MCC for set 11 by using SVM classifier with rbf kernel is %f \n',MCCsvm11);
+
+% subject 12
+% X12=[x121(1:12000,1);x122(1:12000,1)]';
+MCCsvm12=mysvm_classify(X12,12,f2);
+fprintf('\n MCC for set 12 by using SVM classifier with rbf kernel is %f \n',MCCsvm12);
+
+% subject 13
+% X13=[x131(1:12000,1);x132(1:12000,1)]';
+MCCsvm13=mysvm_classify(X13,13,f2);
+fprintf('\n MCC for set 13 by using SVM classifier with rbf kernel is %f \n',MCCsvm13);
+
+% subject 14
+% X14=[x141(1:12000,1);x142(1:12000,1)]';
+MCCsvm14=mysvm_classify(X14,14,f2);
+fprintf('\n MCC for set 14 by using SVM classifier with rbf kernel is %f \n',MCCsvm14);
+
+% subject 15
+% X15=[x151(1:12000,1);x152(1:12000,1)]';
+MCCsvm15=mysvm_classify(X15,15,f2);
+fprintf('\n MCC for set 15 by using SVM classifier with rbf kernel is %f \n',MCCsvm15);
+% % %----------------------------------------------------------------------------------------------------------------%
+% % Test KNN classifier 
+
+% subject 1
+MCCk1=myknn_classify(X1,1);
+fprintf('\n MCC for set 1 by using KNN classifier is %f \n',MCCk1);
+
+% subject 2
+MCCk2=myknn_classify(X2,2);
+fprintf('\n MCC for set 2 by using KNN classifier  is %f \n',MCCk2);
+
+% subject 3
+MCCk3=myknn_classify(X3,3);
+fprintf('\n MCC for set 3 by using KNN classifier  is %f \n',MCCk3);
+
+% subject 4
+MCCk4=myknn_classify(X4,4);
+fprintf('\n MCC for set 4 by using KNN classifier  is %f \n',MCCk4);
+
+% subject 5
+MCCk5=myknn_classify(X5,5);
+fprintf('\n MCC for set 5 by using KNN classifier  is %f \n',MCCk5);
+
+% subject 6
+MCCk6=myknn_classify(X6,6);
+fprintf('\n MCC for set 6 by using KNN classifier  is %f \n',MCCk6);
+
+% subject 7
+MCCk7=myknn_classify(X7,7);
+fprintf('\n MCC for set 7 by using KNN classifier  is %f \n',MCCk7);
+
+% subject 8
+MCCk8=myknn_classify(X8,8);
+fprintf('\n MCC for set 8 by using KNN classifier  is %f \n',MCCk8);
+
+% subject 9
+MCCk9=myknn_classify(X9,9);
+fprintf('\n MCC for set 9 by using KNN classifier  is %f \n',MCCk9);
+
+% subject 10
+MCCk10=myknn_classify(X10,10);
+fprintf('\n MCC for set 10 by using KNN classifier  is %f \n',MCCk10);
+
+% subject 11
+MCCk11=myknn_classify(X11,11);
+fprintf('\n MCC for set 11 by using KNN classifier  is %f \n',MCCk11);
+
+% subject 12
+MCCk12=myknn_classify(X12,12);
+fprintf('\n MCC for set 12 by using KNN classifier  is %f \n',MCCk12);
+
+% subject 13
+MCCk13=myknn_classify(X13,13);
+fprintf('\n MCC for set 13 by using KNN classifier  is %f \n',MCCk13);
+
+% subject 14
+MCCk14=myknn_classify(X14,14);
+fprintf('\n MCC for set 14 by using KNN classifier  is %f \n',MCCk14);
+
+% subject 15
+MCCk15=myknn_classify(X15,15);
+fprintf('\n MCC for set 15 by using KNN classifier  is %f \n',MCCk15);
